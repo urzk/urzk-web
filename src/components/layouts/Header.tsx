@@ -14,9 +14,11 @@ const Header = () => {
               </Link>
             </li>
             <li className="header-nav-list-item-border px-4">
-              <div className="flex h-full [&>*]:my-auto">
-                <span className="text-gray-800">POSTS</span>
-              </div>
+              <Link href="/posts">
+                <div className="flex h-full [&>*]:my-auto">
+                  <span className="text-gray-800">POSTS</span>
+                </div>
+              </Link>
             </li>
           </ul>
         </div>
