@@ -1,8 +1,9 @@
-import Head from "next/head";
+import type { Metadata } from "next";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
+import { cmsEndpoint } from "~/utils/cms-client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faClockRotateLeft,
@@ -24,6 +25,21 @@ type Props = {
   params: Promise<{
     id: string;
   }>;
+};
+
+export const generateMetadata = async ({
+  params,
+}: Props): Promise<Metadata> => {
+  const { id } = await params;
+
+  const blog = await cmsClient.getListDetail<CMSBlogData>({
+    endpoint: cmsEndpoint,
+    contentId: id,
+  });
+
+  return {
+    title: `${blog.title} | urzk-web`,
+  };
 };
 
 const ShareButtons = () => {
@@ -107,15 +123,12 @@ const Page = async ({ params }: Props) => {
   const { id } = await params;
 
   const cmsBlog = await cmsClient.getListDetail<CMSBlogData>({
-    endpoint: "blogs",
+    endpoint: cmsEndpoint,
     contentId: id,
   });
 
   return (
     <div>
-      <Head>
-        <title>{`${cmsBlog.title} | ${"urzk-web"}`}</title>
-      </Head>
       <Nav category={cmsBlog.category} title={cmsBlog.title} />
       <div className="flex flex-col lg:flex-row">
         <Aside />
@@ -141,7 +154,7 @@ export default Page;
 
 export async function generateStaticParams() {
   const blogs = await cmsClient.getList<CMSBlogData>({
-    endpoint: "blogs",
+    endpoint: cmsEndpoint,
   });
 
   return blogs.contents.map((blog) => ({

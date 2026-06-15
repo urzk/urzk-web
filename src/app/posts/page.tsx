@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import type { MicroCMSListResponse } from "microcms-js-sdk";
+import { cmsEndpoint } from "~/utils/cms-client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faClockRotateLeft,
@@ -65,9 +65,8 @@ const Post = ({ cmsBlog }: { cmsBlog: CMSBlogData }) => {
 };
 
 const Page = async () => {
-  const endpoint = "blogs";
   const cmsBlogList = await cmsClient.getList<CMSBlogData>({
-    endpoint,
+    endpoint: cmsEndpoint,
   });
 
   return (
