@@ -1,21 +1,31 @@
 import { ReactNode } from "react";
 import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 type NavListItemProps = {
-  href?: string;
   children?: ReactNode;
+  href?: string;
+  isFirst?: boolean;
 };
 
-const NavListItem = ({ href, children }: NavListItemProps) => {
+const NavListItem = ({ href, children, isFirst }: NavListItemProps) => {
   return (
-    <li className="nav-list-item-border px-4">
-      <div className="flex h-full [&>*]:my-auto">
+    <li className="px-4 relative">
+      {!isFirst && (
+        <div className="absolute text-slate-300 left-0 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          <FontAwesomeIcon icon={faAngleRight} />
+        </div>
+      )}
+      <div className="flex h-full">
         {href ? (
-          <Link href={href} className="text-cyan-700 underline">
+          <Link href={href} className="my-auto text-cyan-700 underline">
             {children}
           </Link>
         ) : (
-          <span className="font-semibold text-gray-800">{children}</span>
+          <span className="my-auto font-semibold text-slate-800">
+            {children}
+          </span>
         )}
       </div>
     </li>

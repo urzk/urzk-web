@@ -9,14 +9,14 @@ const Header = () => {
             <li className="header-nav-list-item-border px-2">
               <Link href="/">
                 <div className="flex h-full from-white via-slate-100 to-white px-2 hover:bg-gradient-to-b [&>*]:my-auto">
-                  <span className="text-gray-800">HOME</span>
+                  <span className="text-slate-800">HOME</span>
                 </div>
               </Link>
             </li>
             <li className="header-nav-list-item-border px-4">
               <Link href="/posts">
                 <div className="flex h-full [&>*]:my-auto">
-                  <span className="text-gray-800">POSTS</span>
+                  <span className="text-slate-800">POSTS</span>
                 </div>
               </Link>
             </li>

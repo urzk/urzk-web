@@ -14,13 +14,13 @@ export const Nav = ({ category, title }: NavProps) => {
       <div className="white-land h-12 rounded-full">
         <div className="flex h-full p-3">
           <ul className="flex text-sm">
-            <NavListItem href="/" key="home">
+            <NavListItem href="/" key="home" isFirst={true}>
               <FontAwesomeIcon icon={faHouse} />
             </NavListItem>
-            <NavListItem href={`/posts/`} key="posts">
+            <NavListItem href={title ? "/posts/" : ""} key="posts">
               記事一覧
             </NavListItem>
-            <NavListItem key="title">{title}</NavListItem>
+            {title && <NavListItem key="title">{title}</NavListItem>}
           </ul>
         </div>
       </div>

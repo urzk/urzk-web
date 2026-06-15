@@ -2,7 +2,7 @@
 @plugin "@tailwindcss/typography";
 
 .cell-wrapper {
-  @apply flex flex-col overflow-hidden rounded-lg bg-gray-50 shadow;
+  @apply flex flex-col overflow-hidden rounded-lg bg-slate-50 shadow;
 }
 
 .cell {
@@ -17,12 +17,8 @@ main .cell {
   @apply bg-white shadow;
 }
 
-.nav-list-item-border {
-  @apply border-l-2 border-dotted border-gray-400 first:border-l-0;
-}
-
 .header-nav-list-item-border {
-  @apply border-r-2 border-dashed border-gray-200 first:border-l-2;
+  @apply border-r-2 border-dashed border-slate-200 first:border-l-2;
 }
 
 .bg-hougan {
