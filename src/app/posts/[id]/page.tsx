@@ -3,6 +3,7 @@ import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import remarkMath from "remark-math";
 import rehypeKaTeX from "rehype-katex";
+import { format } from "date-fns";
 import { cmsEndpoint } from "~/utils/cms-client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -32,9 +33,12 @@ export const generateMetadata = async ({
 }: Props): Promise<Metadata> => {
   const { id } = await params;
 
-  const blog = await cmsClient.getListDetail<CMSBlogData>({
+  const blog = await cmsClient.getListDetail<{ title: string }>({
     endpoint: cmsEndpoint,
     contentId: id,
+    queries: {
+      fields: "title",
+    },
   });
 
   return {
@@ -85,8 +89,8 @@ const Aside = () => {
 };
 
 const CellTop = ({ cmsBlog }: { cmsBlog: CMSBlogData }) => {
-  const publishedAt = new Date(cmsBlog.publishedAt ?? 0).toLocaleDateString();
-  const updatedAt = new Date(cmsBlog.updatedAt ?? 0).toLocaleDateString();
+  const publishedAt = format(new Date(cmsBlog.publishedAt ?? 0), "yyyy/MM/dd");
+  const updatedAt = format(new Date(cmsBlog.updatedAt ?? 0), "yyyy/MM/dd");
 
   return (
     <section className="cell prose prose-slate max-w-none max-sm:prose-sm">
@@ -153,11 +157,11 @@ const Page = async ({ params }: Props) => {
 export default Page;
 
 export async function generateStaticParams() {
-  const blogs = await cmsClient.getList<CMSBlogData>({
+  const blogIds = await cmsClient.getAllContentIds({
     endpoint: cmsEndpoint,
   });
 
-  return blogs.contents.map((blog) => ({
-    id: blog.id,
+  return blogIds.map((id) => ({
+    id,
   }));
 }

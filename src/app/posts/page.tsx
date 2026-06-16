@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { format } from "date-fns";
 import { cmsEndpoint } from "~/utils/cms-client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -29,8 +30,8 @@ const Aside = () => {
 };
 
 const Post = ({ cmsBlog }: { cmsBlog: CMSBlogData }) => {
-  const publishedAt = new Date(cmsBlog.publishedAt ?? 0).toLocaleDateString();
-  const updatedAt = new Date(cmsBlog.updatedAt ?? 0).toLocaleDateString();
+  const publishedAt = format(new Date(cmsBlog.publishedAt ?? 0), "yyyy/MM/dd");
+  const updatedAt = format(new Date(cmsBlog.updatedAt ?? 0), "yyyy/MM/dd");
 
   return (
     <article className="cell prose prose-slate max-w-none max-sm:prose-sm">
