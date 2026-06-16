@@ -75,7 +75,7 @@ const Page = async () => {
       <Nav place="posts" />
       <div className="flex flex-col lg:flex-row">
         <Aside />
-        <main className="flex-grow p-3">
+        <main className="grow p-3">
           <div className="cell-wrapper">
             {cmsBlogList.contents.map((blog) => (
               <Post key={blog.id} cmsBlog={blog} />
