@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import remarkMath from "remark-math";
-import rehypeKatex from "rehype-katex";
+import rehypeKaTeX from "rehype-katex";
 import { cmsEndpoint } from "~/utils/cms-client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -132,13 +132,13 @@ const Page = async ({ params }: Props) => {
       <Nav category={cmsBlog.category} title={cmsBlog.title} />
       <div className="flex flex-col lg:flex-row">
         <Aside />
-        <main className="flex-grow p-3">
+        <main className="grow p-3">
           <div className="cell-wrapper">
             <CellTop cmsBlog={cmsBlog} />
-            <section className="cell bg-hougan prose prose-slate max-w-none max-sm:prose-sm">
+            <section className="cell prose prose-slate max-w-none max-sm:prose-sm">
               <ReactMarkdown
                 remarkPlugins={[remarkMath]}
-                rehypePlugins={[rehypeKatex]}
+                rehypePlugins={[rehypeKaTeX]}
               >
                 {cmsBlog.content}
               </ReactMarkdown>
