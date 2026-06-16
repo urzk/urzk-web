@@ -133,7 +133,7 @@ const Page = async ({ params }: Props) => {
 
   return (
     <div>
-      <Nav category={cmsBlog.category} title={cmsBlog.title} />
+      <Nav place="post" category={cmsBlog.category} title={cmsBlog.title} />
       <div className="flex flex-col lg:flex-row">
         <Aside />
         <main className="grow p-3">

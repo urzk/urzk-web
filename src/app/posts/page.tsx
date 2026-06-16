@@ -72,7 +72,7 @@ const Page = async () => {
 
   return (
     <div>
-      <Nav />
+      <Nav place="posts" />
       <div className="flex flex-col lg:flex-row">
         <Aside />
         <main className="flex-grow p-3">
