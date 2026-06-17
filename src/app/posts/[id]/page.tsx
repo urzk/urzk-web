@@ -110,7 +110,7 @@ const Page = async ({ params }: Props) => {
         <main className="grow p-3">
           <div className="cell-wrapper">
             <CellTop cmsBlog={cmsBlog} />
-            <section className="cell prose prose-slate max-w-none max-sm:prose-sm">
+            <section className="cell prose prose-slate max-w-none">
               <ReactMarkdown
                 remarkPlugins={[
                   remarkBreaks,

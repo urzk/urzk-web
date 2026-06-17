@@ -7,7 +7,7 @@ export default function Home() {
       <Nav place="home" />
       <main className="flex flex-col grow p-3">
         <div className="cell-wrapper">
-          <div className="cell prose prose-slate max-w-none max-sm:prose-sm">
+          <div className="cell prose prose-slate max-w-none">
             <p>
               <strong>こちらは、urzk/虚月希音のWebサイトです。</strong>
               <br />
