@@ -15,12 +15,6 @@ import {
   faUpload,
   faTag,
 } from "@fortawesome/free-solid-svg-icons";
-import { faTwitter, faFacebook } from "@fortawesome/free-brands-svg-icons";
-import {
-  TwitterShareButton,
-  FacebookShareButton,
-  HatenaShareButton,
-} from "react-share";
 
 import { cmsClient } from "~/utils/cms-client";
 import { CMSBlogData } from "~/utils/cms-data";
@@ -48,33 +42,6 @@ export const generateMetadata = async ({
   return {
     title: `${blog.title} | urzk-web`,
   };
-};
-
-const ShareButtons = () => {
-  return (
-    <div>
-      <TwitterShareButton url="a" className="mr-1 align-middle last:mr-0">
-        <div className="rounded-lg bg-[#1d9bf0] px-2 py-1">
-          <FontAwesomeIcon icon={faTwitter} className="text-white" />
-        </div>
-      </TwitterShareButton>
-      <FacebookShareButton url="a" className="mr-1 align-middle last:mr-0">
-        <div className="rounded-lg bg-[#1877f2] px-2 py-1">
-          <FontAwesomeIcon icon={faFacebook} className="text-white" />
-        </div>
-      </FacebookShareButton>
-      <HatenaShareButton url="a" className="mr-1 align-middle last:mr-0">
-        <div className="overflow-hidden rounded-lg">
-          <img
-            src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png"
-            alt="このエントリーをはてなブックマークに追加"
-            width="32"
-            height="32"
-          />
-        </div>
-      </HatenaShareButton>
-    </div>
-  );
 };
 
 const Aside = () => {
@@ -156,7 +123,6 @@ const Page = async ({ params }: Props) => {
                 {cmsBlog.content}
               </ReactMarkdown>
             </section>
-            <div className="cell">{/* <ShareButtons /> */}</div>
           </div>
         </main>
       </div>
