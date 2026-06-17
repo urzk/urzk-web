@@ -1,4 +1,4 @@
-import { Nav } from "~/components/layouts/Nav/Nav";
+import Nav from "~/components/layouts/Nav";
 
 export default function Home() {
   return (

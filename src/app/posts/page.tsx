@@ -11,7 +11,7 @@ import {
 
 import { cmsClient } from "~/utils/cms-client";
 import { CMSBlogData } from "~/utils/cms-data";
-import { Nav } from "~/components/layouts/Nav/Nav";
+import Nav from "~/components/layouts/Nav";
 
 export const metadata: Metadata = {
   title: "投稿一覧 | urzk-web",

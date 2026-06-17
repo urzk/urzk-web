@@ -20,7 +20,7 @@ import {
 
 import { cmsClient } from "~/utils/cms-client";
 import { CMSBlogData } from "~/utils/cms-data";
-import { Nav } from "~/components/layouts/Nav/Nav";
+import Nav from "~/components/layouts/Nav";
 
 type Props = {
   params: Promise<{

@@ -9,7 +9,7 @@ type NavProps = {
   title?: string;
 };
 
-export const Nav = ({ place, category, title }: NavProps) => {
+const Nav = ({ place, category, title }: NavProps) => {
   return (
     <nav className="p-3">
       <div className="white-land h-12 rounded-full">
@@ -34,3 +34,4 @@ export const Nav = ({ place, category, title }: NavProps) => {
     </nav>
   );
 };
+export default Nav;
