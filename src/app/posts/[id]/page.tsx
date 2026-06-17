@@ -49,9 +49,6 @@ const Aside = () => {
     <aside className="w-80 flex-shrink-0 p-3 max-lg:hidden">
       <div className="cell-wrapper sticky top-6">
         <div className="cell">
-          <h2 className="text-xl font-semibold">検索</h2>
-        </div>
-        <div className="cell">
           <h2 className="text-xl font-semibold">目次</h2>
         </div>
       </div>
