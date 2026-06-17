@@ -34,7 +34,7 @@ const Post = ({ cmsBlog }: { cmsBlog: CMSBlogData }) => {
   const updatedAt = format(new Date(cmsBlog.updatedAt ?? 0), "yyyy/MM/dd");
 
   return (
-    <article className="cell prose prose-slate max-w-none max-sm:prose-sm">
+    <article className="cell prose prose-slate max-w-none">
       <Link href={`/posts/${cmsBlog.id}`}>
         <h2 className="mt-0 max-sm:mt-0">{cmsBlog.title}</h2>
       </Link>

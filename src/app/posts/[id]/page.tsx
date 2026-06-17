@@ -49,9 +49,6 @@ const Aside = () => {
     <aside className="w-80 flex-shrink-0 p-3 max-lg:hidden">
       <div className="cell-wrapper sticky top-6">
         <div className="cell">
-          <h2 className="text-xl font-semibold">検索</h2>
-        </div>
-        <div className="cell">
           <h2 className="text-xl font-semibold">目次</h2>
         </div>
       </div>
@@ -110,7 +107,7 @@ const Page = async ({ params }: Props) => {
         <main className="grow p-3">
           <div className="cell-wrapper">
             <CellTop cmsBlog={cmsBlog} />
-            <section className="cell prose prose-slate max-w-none max-sm:prose-sm">
+            <section className="cell prose prose-slate max-w-none">
               <ReactMarkdown
                 remarkPlugins={[
                   remarkBreaks,
