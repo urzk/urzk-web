@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
-import remarkMath from "remark-math";
 import rehypeKaTeX from "rehype-katex";
+import remarkBreaks from "remark-breaks";
+import remarkCjkFriendly from "remark-cjk-friendly";
+import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
+
 import { format } from "date-fns";
 import { cmsEndpoint } from "~/utils/cms-client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -141,7 +145,12 @@ const Page = async ({ params }: Props) => {
             <CellTop cmsBlog={cmsBlog} />
             <section className="cell prose prose-slate max-w-none max-sm:prose-sm">
               <ReactMarkdown
-                remarkPlugins={[remarkMath]}
+                remarkPlugins={[
+                  remarkBreaks,
+                  remarkCjkFriendly,
+                  remarkGfm,
+                  remarkMath,
+                ]}
                 rehypePlugins={[rehypeKaTeX]}
               >
                 {cmsBlog.content}
