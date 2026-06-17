@@ -1,0 +1,44 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+.cell-wrapper {
+  @apply flex flex-col overflow-hidden rounded-lg bg-slate-50 shadow;
+}
+
+.cell {
+  @apply mb-3 bg-white p-9 shadow-sm last:mb-0;
+}
+
+main .cell {
+  @apply sm:px-12;
+}
+
+.white-land {
+  @apply bg-white shadow;
+}
+
+.header-nav-list-item-border {
+  @apply border-r-2 border-dashed border-slate-200 first:border-l-2;
+}
+
+.bg-hougan {
+  background-image:
+    linear-gradient(
+      0deg,
+      transparent calc(100% - 1px),
+      rgb(241 245 249) calc(100% - 1px)
+    ),
+    linear-gradient(
+      90deg,
+      transparent calc(100% - 1px),
+      rgb(241 245 249) calc(100% - 1px)
+    );
+  background-size: 16px 16px;
+  @apply bg-repeat;
+}
+
+.bg-plus {
+  background-image: url("/bg-plus.svg");
+  background-size: 16px 16px;
+  @apply bg-repeat;
+}
